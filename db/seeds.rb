@@ -1,4 +1,6 @@
 Show.delete_all()
+User.delete_all()
+FavouriteShow.delete_all()
 
 Show.create({
   title: 'Friends',
@@ -24,7 +26,7 @@ Show.create({
   programmeID: '3'
   })
 
-Show.create({
+show_two = Show.create({
   title: 'House',
   series: 8,
   description: 'House (aka House MD), from executive producers Paul Attanasio, Katie Jacobs, David Shore, and Bryan Singer is a new take on mystery, where the villain is a medical malady and the hero is an irreverent, controversial doctor who trusts no one, least of all his patients.',
@@ -32,10 +34,31 @@ Show.create({
   programmeID: '4'
   })
 
-Show.create({
+show_one = Show.create({
   title: 'Gossip Girl',
   series: 6,
   description: 'Privileged teens living on the Upper East Side of New York can hide no secret from the ruthless blogger who is always watching.',
   image: 'https://i.ytimg.com/vi/vxi6NlFoj-o/maxresdefault.jpg',
   programmeID: '5'
+
+  })
+
+user_one = User.create({
+  
+    name: 'Jane',
+    email: 'jane@email.com',
+    password: 'password',
+    password_confirmation: 'password'
+    
+  })
+
+
+FavouriteShow.create({
+  user: user_one,
+  show: show_one
+  })
+
+FavouriteShow.create({
+  user: user_one,
+  show: show_two
   })
